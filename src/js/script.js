@@ -170,7 +170,7 @@ const select = {
         // Check if the option is default
         if (option.default) {
           // Reduce price variable
-          price -= option.price;
+           price -= option.price;
         }
       }
     }
