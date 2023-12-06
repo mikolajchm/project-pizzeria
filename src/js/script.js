@@ -393,7 +393,7 @@ class Cart{
     thisCart.dom = {};
     thisCart.dom.wrapper = element;
     thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-    thisCart.dom.productListWrapper = thisCart.dom.wrapper.querySelector(select.cart.productListWrapper);
+    thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
   }
 
   initActions(){
@@ -408,19 +408,16 @@ class Cart{
 
   add(menuProduct) {
     const thisCart = this;
-  
-  
-    /* generate HTML based on template */
-    const generatedHTML = templates.cartProduct(menuProduct);
-  
-    /* create element using utils.createElementFromHTML */
-    thisCart.dom.element = utils.createDOMFromHTML(generatedHTML);
-  
-    /* add element to thisCart.dom.productList */
-    thisCart.dom.productListWrapper.appendChild(generatedDOM);
+
+      const generatedHTML = templates.cartProduct(menuProduct);
+
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      
+      thisCart.dom.productList.appendChild(generatedDOM);
+
   }
 
-};
+}
 
   const app = {
     initMenu: function () {
