@@ -265,35 +265,28 @@ class Product {
 
   prepareCartProductParams() {
     const thisProduct = this;
-
+  
+    // Convert form to object structure, e.g., { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
     const formData = utils.serializeFormToObject(thisProduct.dom.form);
+  
     const params = {};
   
-    // for every category (param)...
+    // For every category (param)...
     for (let paramId in thisProduct.data.params) {
+      // Determine param value, e.g., paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
       const param = thisProduct.data.params[paramId];
-      
-  
-      // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
       params[paramId] = {
         label: param.label,
-        options: {}
+        options: {},
       };
   
-      // for every option in this category
+      // For every option in this category
       for (let optionId in param.options) {
-        // Determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-  
-        // Check if the option is selected
-        const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
-  
-        // Add option to params if selected
+        const optionSelected =
+          formData[paramId] && formData[paramId].includes(optionId);
         if (optionSelected) {
-          params[paramId].options[optionId] = {
-            label: option.label,
-            price: option.price,
-          };
+          params[paramId].options[optionId] = option.label;
         }
       }
     }
@@ -412,9 +405,9 @@ class Cart{
       const generatedHTML = templates.cartProduct(menuProduct);
 
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      
-      thisCart.dom.productList.appendChild(generatedDOM);
 
+      thisCart.dom.productList.appendChild(generatedDOM);
+      
   }
 
 }
