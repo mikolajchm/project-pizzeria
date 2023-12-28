@@ -25,9 +25,9 @@ class BaseWidget{
         const newValue = thisWidget.parseValue(value);
       
        if (newValue != thisWidget.coorectValue && thisWidget.isValid(newValue)) {
-        thisWidget.coorectValue = newValue;
+        thisWidget.correctValue = newValue;
     
-        thisWidget.announce('valueChanged', { newValue: thisWidget.coorectValue });
+        thisWidget.announce('valueChanged', { newValue: thisWidget.correctValue });
        }
     
        thisWidget.renderValue();
