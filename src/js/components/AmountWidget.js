@@ -3,19 +3,24 @@ import BaseWidget from "./BaseWidget.js";
 
 
 class AmonutWidget extends BaseWidget {
-    constructor(element) {
-      super(element, settings.amountWidget.defaultValue);
+  constructor(element) {
+    super(element, settings.amountWidget.defaultValue);
 
-      const thisWidget = this;
+    const thisWidget = this;
 
-      thisWidget.getElements(element);
-      thisWidget.initActions();
+    thisWidget.getElements(element);
+    thisWidget.initActions();
 
-      console.log('Initial Value:', thisWidget.value);
-
-      //console.log("AmoountWidget:", thisWidget);
-      //console.log("constructor arguments:", element);
+    console.log('Initial Value:', thisWidget.value);
+    if(thisWidget.dom.input.value){
+      thisWidget.value = thisWidget.dom.input.value;
+    } else {
+      thisWidget.dom.input.value = settings.amountWidget.defaultValue;
     }
+
+    //console.log("AmoountWidget:", thisWidget);
+    //console.log("constructor arguments:", element);
+  }
     getElements() {
       const thisWidget = this;
 
