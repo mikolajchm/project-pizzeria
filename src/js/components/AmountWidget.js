@@ -2,7 +2,7 @@ import { select, settings } from "../settings.js";
 import BaseWidget from "./BaseWidget.js";
 
 
-class AmonutWidget extends BaseWidget {
+class AmountWidget extends BaseWidget {
   constructor(element) {
     super(element, settings.amountWidget.defaultValue);
 
@@ -60,4 +60,4 @@ class AmonutWidget extends BaseWidget {
     }
   }
 
-  export default AmonutWidget;
+  export default AmountWidget;
