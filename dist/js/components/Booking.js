@@ -22,8 +22,8 @@ class Booking {
     getData(){
         const thisBooking = this;
 
-        const startDateParam = settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate);
-        const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate);
+        const startDateParam = settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePickerWidget.minDate);
+        const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePickerWidget.maxDate);
 
         const params = {
             booking: [
@@ -95,8 +95,8 @@ class Booking {
             thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
         }
 
-        const minDate = thisBooking.datePicker.minDate;
-        const maxDate = thisBooking.datePicker.maxDate;
+        const minDate = thisBooking.datePickerWidget.minDate;
+        const maxDate = thisBooking.datePickerWidget.maxDate;
 
 
         for(let item of eventsRepeat){
@@ -135,8 +135,8 @@ class Booking {
     updateDOM() {
         const thisBooking = this;
     
-        thisBooking.date = thisBooking.datePicker.value;
-        thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
+        thisBooking.date = thisBooking.datePickerWidget.value;
+        thisBooking.hour = utils.hourToNumber(thisBooking.hourPickerWidget.value);
     
         let allAvailable = false;
     
@@ -221,8 +221,8 @@ class Booking {
           // Resetujemy wybór przy zmianie daty, godziny, liczby gości, lub liczby godzin
           if (
             thisBooking.selectedTable !== null &&
-            (thisBooking.date !== thisBooking.datePicker.value ||
-              thisBooking.hour !== utils.hourToNumber(thisBooking.hourPicker.value) ||
+            (thisBooking.date !== thisBooking.datePickerWidget.value ||
+              thisBooking.hour !== utils.hourToNumber(thisBooking.hourPickerWidget.value) ||
               thisBooking.peopleAmount !== thisBooking.peopleAmountWidget.value ||
               thisBooking.hoursAmount !== thisBooking.hoursAmountWidget.value)
           ) {
@@ -270,8 +270,8 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.bookings;
 
     const payload = {
-      date: thisBooking.datePicker.value,
-      hour: thisBooking.hourPicker.value,
+      date: thisBooking.datePickerWidget.value,
+      hour: thisBooking.hourPickerWidget.value,
       table: thisBooking.selectedTable,
       duration: thisBooking.hoursAmountWidget.value,
       ppl: thisBooking.peopleAmountWidget.value,
