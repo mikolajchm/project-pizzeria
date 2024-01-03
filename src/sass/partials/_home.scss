@@ -1,0 +1,184 @@
+.home-box {
+    margin: ($base-size * 3.5) auto;
+    padding: ($base-size * 6) ($base-size * 4);
+    background: $color-light;
+    border-bottom: 1px solid lighten($color-dark, 70%);
+    border-radius: $radius;
+}
+
+.home-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.home-pic {
+    text-align: center;
+    padding-right: 5px;
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 50%;
+    height: 100px;
+    
+    &:hover .pic-title {
+        top: 40%; 
+    }
+}
+
+.home-pic h1,
+.home-pic h2 {
+    color: white;
+}
+
+.home-pic h1 {
+    margin-top: 40px;
+    font-size: 20px;
+
+}
+
+.home-pic h2 {
+    margin-top: 50px;
+    font-size: 12px;
+}
+
+.pic-img img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.pic-title {
+    position: absolute;
+    display: block;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: top 0.5s;
+}
+.home-pic:hover .pic-title h2 {
+    top: 0; 
+}
+
+.home-opening {
+    position: relative;
+    height: 120px;
+    background-color: $color-main;
+    color: $color-light;
+    text-align: center;
+    padding: 5px;
+    margin-top: 25px;
+    border-radius: 3px;
+}
+
+.home-opening-title h1{
+    font-size: 25px;
+}
+
+.home-opening-title h2{
+    margin-top: -20px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+
+
+.carousel {
+    margin: 90px 5px;
+}
+
+.carousel-img {
+    flex: 1;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+
+.carousel-description {
+    flex: 2;
+    padding-right: 220px;
+    top: -15px;
+    position: relative;
+    left: 230px;
+}
+
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 180px;
+    
+}
+
+
+.gallerycontainer {
+    width: calc(33.33% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.gallerycontainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Kolor przyciemnienia */
+    opacity: 0; /* Początkowa przezroczystość */
+    transition: opacity 0.3s ease; /* Dodane płynne przejście */
+}
+  
+.gallerycontainer:hover::before {
+    opacity: 1; /* Przyciemnij po najechaniu myszą */
+}
+
+
+.gallery .gallerycontainer .icon {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    display: none;
+
+}
+
+.gallery .gallerycontainer:hover .icon {
+    display: block;
+    
+}
+
+
+.gallerycontainer i:hover {
+   
+    color: red;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.footer button {
+    color: red;
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+}

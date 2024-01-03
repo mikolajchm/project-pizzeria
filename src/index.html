@@ -7,7 +7,9 @@
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,6 +23,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -62,6 +65,9 @@
   </header>
 
   <div id="pages">
+    <section id="home">
+      <div id="home-wrapper" class="home-wrapper container"></div>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -69,6 +75,128 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+  <script id="template-home" type="text/x-handlebars-template">
+    <div class="home-box">
+      <div class="home-nav">
+        <div class="home-pic">
+          <a href="#order">
+            <div class="pic-img"><img src="https://i.postimg.cc/t4fxQwP0/pexels-brett-jordan-825661.jpg" alt="image"></div>
+            <div class="pic-title">
+              <h1>ORDER HERE</h1>
+              <h2>AAAAAAAAAAAAAAAA</h2>
+            </div>
+          </a>
+        </div>
+        <div class="home-pic">
+          <a href="#booking">
+            <div class="pic-img"><img src="https://i.postimg.cc/mryBNFTd/pexels-henry-han-19616568.jpg" alt="image"></div>
+            <div class="pic-title">
+              <h1>BOOK A TABLE</h1>
+              <h2>AAAAAAAAAAAAAAAA</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="home-opening">
+        <div class="home-opening-title">
+          <h1>OPENING HOURS:</h1>
+          <h2>TUE-SUN, 12PM - 12AM</h2>
+        </div>
+      </div>
+      <div class="carousel" data-flickity='{"autoplay": 3000, "prevNextButtons": false, "wrapAround": true}'>
+        <div class="carousel-cell">
+            <div class="carousel-img">
+              <img src="https://i.postimg.cc/NjG2tvpF/pexels-nadin-sh-19564498.jpg" alt="image">
+            </div>
+            <div class="carousel-description">
+              <h3>AMAZING SERVICE</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur
+                 adipiscing elit, sed do eiusmod tempor
+                 incididunt ut labore et dolore magna aliqua.
+              </p>
+              <br>
+              -ALICE-
+            </div>
+          </div>
+        <div class="carousel-cell">
+            <div class="carousel-img">
+              <img src="https://i.postimg.cc/NfcrNHX1/pexels-andrea-piacquadio-761854.jpg" alt="image">
+            </div>
+            <div class="carousel-description">
+              <h3>Freh Food</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur 
+                 adipiscing elit, sed do eiusmod tempor 
+                 incididunt ut labore et dolore magna aliqua.
+              </p>
+              <br>
+              -NATALIE-
+            </div>
+          </div>
+        <div class="carousel-cell">
+          <div class="carousel-img">
+            <img src="https://i.postimg.cc/yx44hBkT/pexels-moose-photos-1036622.jpg" alt="image">
+          </div>
+          <div class="carousel-description">
+            <h3>Nice</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur
+               adipiscing elit, sed do eiusmod tempor
+               incididunt ut labore et dolore magna aliqua.
+            </p>
+            <br>
+            -MARGARET-
+          </div>
+        </div>
+      </div> 
+      <div class="gallery">
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/4N1YKs56/pexels-caeli-team-3714960.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/0NzjHmqn/pexels-dmitry-zvolskiy-3679601.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/hPMGDMDM/pexels-harper-sunday-18275923.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/t4fxQwP0/pexels-brett-jordan-825661.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/5ybx1QDZ/pexels-nicu-cobasnean-19606035.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+        <div class="gallerycontainer">
+            <img src="https://i.postimg.cc/0NzjHmqn/pexels-dmitry-zvolskiy-3679601.jpg" alt="image">
+          <div class="icon">
+            <i class="material-icons">favorite</i>
+            <i class="material-icons">share</i>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <button>View more on Instagram</button>
+      </div>
+    </div>
+  </script>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
@@ -244,6 +372,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="vendor/range-slider.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
