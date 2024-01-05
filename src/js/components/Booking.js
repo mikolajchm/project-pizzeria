@@ -208,60 +208,50 @@ class Booking {
     }
 
     initTables() {
-    const thisBooking = this;
-
-    thisBooking.dom.tablesContainer.addEventListener('click', function (event) {
-      event.preventDefault();
-      const clickedElement = event.target;
-
-      if (clickedElement.classList.contains(classNames.booking.tableBooked)) {
-        const tableId = parseInt(clickedElement.getAttribute(settings.booking.tableIdAttribute));
-
-        if (!clickedElement.classList.contains(classNames.booking.tableBooked)) {
-          // Resetujemy wybór przy zmianie daty, godziny, liczby gości, lub liczby godzin
-          if (
-            thisBooking.selectedTable !== null &&
-            (thisBooking.date !== thisBooking.datePickerWidget.value ||
-              thisBooking.hour !== utils.hourToNumber(thisBooking.hourPickerWidget.value) ||
-              thisBooking.peopleAmount !== thisBooking.peopleAmountWidget.value ||
-              thisBooking.hoursAmount !== thisBooking.hoursAmountWidget.value)
-          ) {
-            thisBooking.resetTable();
-          }
-
-          // Sprawdzamy, czy stolik jest dostępny
+      const thisBooking = this;
+  
+      thisBooking.dom.tablesContainer.addEventListener('click', function (event) {
+        event.preventDefault();
+        const clickedElement = event.target;
+  
+        if (clickedElement.classList.contains(classNames.booking.table)) {
+          const tableId = parseInt(clickedElement.getAttribute(settings.booking.tableIdAttribute));
+  
           if (!clickedElement.classList.contains(classNames.booking.tableBooked)) {
-            // Zdejmujemy klasę selected ze starego stolika, jeśli taki był
-            thisBooking.resetTable();
-
-            // Zaznaczamy nowy stolik
-            clickedElement.classList.add(classNames.booking.selectTable);
-
-            // Zapisujemy numer nowego stolika w instancji Booking
-            thisBooking.selectedTable = tableId;
+        
+            // Sprawdzamy, czy stolik jest dostępny
+            if (!clickedElement.classList.contains(classNames.booking.selectTable)) {
+              // Zdejmujemy klasę selected ze starego stolika, jeśli taki był
+              thisBooking.resetTable();
+  
+              // Zaznaczamy nowy stolik
+              clickedElement.classList.add(classNames.booking.selectTable);
+  
+              // Zapisujemy numer nowego stolika w instancji Booking
+              thisBooking.selectedTable = tableId;
+            } else {
+              // Zdejmujemy klasę selected ze starego stolika
+              thisBooking.resetTable();
+            }
           } else {
             alert('Stolik jest już zajęty. Wybierz inny.');
           }
         }
-      }
-    });
-  }
-
-  resetTable() {
-    const thisBooking = this;
-
-    // Zdejmujemy klasę selected ze starego stolika
-    const selectedTableElement = thisBooking.dom.wrapper.querySelector(
-      '.' + classNames.booking.tableBooked + '.' + classNames.booking.selectTable
-    );
-
-    if (selectedTableElement !== null) {
-      selectedTableElement.classList.remove(classNames.booking.selectTable);
+      });
     }
-
-    // Resetujemy numer wybranego stolika
-    thisBooking.selectedTable = null;
-  }
+  
+    resetTable() {
+      const thisBooking = this;
+  
+      // Zdejmujemy klasę selected ze starego stolika
+      const selectedTableElement = thisBooking.dom.wrapper.querySelector(select.booking.tableSelected);
+      if (selectedTableElement !== null) {
+        selectedTableElement.classList.remove(classNames.booking.selectTable);
+      }
+  
+      // Resetujemy numer wybranego stolika
+      thisBooking.selectedTable = null;
+    }
 
   initWidgets() {
     const thisBooking = this;
@@ -276,7 +266,8 @@ class Booking {
     thisBooking.initTables(); 
 
     thisBooking.dom.wrapper.addEventListener('updated', function () {
-        thisBooking.updateDOM();
+      thisBooking.resetTable();
+      thisBooking.updateDOM();
     });
 
   }
